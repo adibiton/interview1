@@ -1,5 +1,6 @@
 var q = require('q');
 var HeavyTask = require('./heavy-task');
+var worker = require('../../node_modules/run-in-worker');
 
 /**
  * wrap executing HeavyTask in a promise
@@ -7,9 +8,11 @@ var HeavyTask = require('./heavy-task');
  * @param i
  * @returns {q.Promise}
  */
-var doHeavyTask = function(i) {
-    return q.when(HeavyTask(i));
-};
+// var doHeavyTask = function(i) {
+//     return q.when(HeavyTask(i));
+// };
+
+var doHeavyTask = worker.createBGTask(HeavyTask);
 
 /**
  * execute HeavyTask 4 times over the input `i`

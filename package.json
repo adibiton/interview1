@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "assert": "^1.4.1",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "run-in-worker": "^1.0.2"
   },
   "devDependencies": {
     "browserify": "^13.1.1",
